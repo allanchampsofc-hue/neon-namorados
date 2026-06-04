@@ -100,7 +100,7 @@ export default function Home() {
             {name:'Pizza Napoletana', desc:'4 fatias · sabores do nosso cardápio'},
             {name:'Risotto ai Funghi e Tartufo', desc:'Risoto cremoso de cogumelos com toque de azeite trufado'},
             {name:'Risotto ai 3 Formaggi', desc:'Risoto cremoso com uma seleção de três queijos'},
-            {name:'Massa Carbonara', desc:'Massa al dente com molho cremoso de ovos, queijo pecorino e guanciale'},
+            {name:'Massa Carbonara', desc:'Massa al dente com molho cremoso de ovos, parmesão curado e bacon defumado'},
           ]} />
           <MenuCat title="Sobremesas" items={[
             {name:'Petit Gâteau com Gelato', desc:'Bolo de chocolate cremoso com sorvete de creme'},
