@@ -59,7 +59,7 @@ export default function Home() {
           <div key={pos} style={{ position: 'absolute', width: 40, height: 40, top: pos.startsWith('t') ? 20 : 'auto', bottom: pos.startsWith('b') ? 20 : 'auto', left: pos.endsWith('l') ? 20 : 'auto', right: pos.endsWith('r') ? 20 : 'auto', borderColor: '#C9A84C', borderStyle: 'solid', borderWidth: pos==='tl'?'2px 0 0 2px':pos==='tr'?'2px 2px 0 0':pos==='bl'?'0 0 2px 2px':'0 2px 2px 0' }} />
         ))}
         <div style={{ color: '#E2C97E', fontSize: 28, letterSpacing: 12, marginBottom: 24, opacity: 0.8 }}>♥ ♥ ♥</div>
-        <Image src="/logo.png" alt="Neon Pizzaria" width={280} height={160}
+        <Image src="/logo-neon.png" alt="Neon Pizzaria" width={280} height={160}
           style={{ objectFit: 'contain', marginBottom: 28, filter: 'drop-shadow(0 0 28px rgba(201,168,76,0.5)) drop-shadow(0 0 60px rgba(139,26,26,0.3))' }}
           priority
         />
@@ -100,7 +100,7 @@ export default function Home() {
             {name:'Pizza Napoletana', desc:'4 fatias · sabores do nosso cardápio'},
             {name:'Risotto ai Funghi e Tartufo', desc:'Risoto cremoso de cogumelos com toque de azeite trufado'},
             {name:'Risotto ai 3 Formaggi', desc:'Risoto cremoso com uma seleção de três queijos'},
-            {name:'Massa Carbonara', desc:'Massa al dente com molho cremoso de ovos, parmesão curado e bacon defumado'},
+            {name:'Massa Carbonara', desc:'Massa al dente com molho cremoso de ovos, queijo pecorino e guanciale'},
           ]} />
           <MenuCat title="Sobremesas" items={[
             {name:'Petit Gâteau com Gelato', desc:'Bolo de chocolate cremoso com sorvete de creme'},
@@ -226,12 +226,12 @@ export default function Home() {
               {erro && <div style={{ background:'rgba(239,68,68,0.15)', border:'1px solid rgba(239,68,68,0.3)', borderRadius:6, padding:'10px 16px', marginBottom:16, fontSize:13, color:'#FCA5A5' }}>{erro}</div>}
 
               <button onClick={handleSubmit} disabled={loading} style={{ width:'100%', background:loading?'#555':'#8B1A1A', color:'#fff', border:'none', borderRadius:6, padding:18, cursor:loading?'not-allowed':'pointer', fontFamily:"'Cinzel',serif", fontSize:13, letterSpacing:'0.15em', textTransform:'uppercase' }}>
-                {loading?'Processando...':'Confirmar e Pagar — R$ 278,00'}
+                {loading?'Processando...':'Confirmar Reserva — R$ 278,00'}
               </button>
 
               <p style={{ fontSize:11, color:'rgba(255,255,255,0.3)', textAlign:'center', marginTop:16, lineHeight:1.6 }}>
                 Cancelamentos com reembolso total até 48h antes do evento.<br/>
-                Após o pagamento você receberá a confirmação por WhatsApp.
+                Após confirmar, você receberá o link de pagamento pelo WhatsApp.
               </p>
             </div>
           ) : (
@@ -247,11 +247,11 @@ export default function Home() {
                 ⏱ Lembre-se: tolerância de 15 minutos após o horário reservado.<br/>
                 💳 O valor pago será abatido integralmente no seu consumo.
               </div>
-              <a href={`${process.env.NEXT_PUBLIC_INFINITPAY_LINK || '#'}?ref=${sucesso.codigo}`} target="_blank" rel="noreferrer" style={{ display:'block', background:'#22C55E', color:'#fff', borderRadius:6, padding:'16px 36px', fontFamily:"'Cinzel',serif", fontSize:13, letterSpacing:'0.12em', textDecoration:'none', textAlign:'center' }}>
-                💳 Pagar R$ 278,00 via InfinitPay
+              <a href={`https://wa.me/5512992502843?text=${encodeURIComponent(`Olá! Fiz minha reserva para o Dia dos Namorados na Neon Pizzaria. Meu código é ${sucesso.codigo}. Gostaria de receber o link de pagamento de R$ 278,00.`)}`} target="_blank" rel="noreferrer" style={{ display:'block', background:'#22C55E', color:'#fff', borderRadius:6, padding:'16px 36px', fontFamily:"'Cinzel',serif", fontSize:13, letterSpacing:'0.12em', textDecoration:'none', textAlign:'center' }}>
+                💬 Finalizar pelo WhatsApp
               </a>
               <p style={{ fontSize:11, color:'rgba(255,255,255,0.3)', marginTop:16, lineHeight:1.6 }}>
-                Após o pagamento, nossa equipe confirmará sua reserva pelo WhatsApp em até 2h.
+                Clique no botão acima para falar com nossa equipe pelo WhatsApp.<br/>Enviaremos o link de pagamento e confirmaremos sua reserva em até 2h.
               </p>
             </div>
           )}
@@ -260,7 +260,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer style={{ background:'#0D0808', padding:'32px 24px', textAlign:'center' }}>
-        <Image src="/logo.png" alt="Neon Pizzaria" width={110} height={60} style={{ objectFit:'contain', opacity:0.7 }} />
+        <Image src="/logo-neon.png" alt="Neon Pizzaria" width={110} height={60} style={{ objectFit:'contain', opacity:0.7 }} />
         <div style={{ fontSize:12, color:'#444', marginTop:16 }}>📱 (12) 92005-7328</div>
       </footer>
     </main>
